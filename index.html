@@ -88,7 +88,7 @@ qrc.callback = res => {
   if (res) {
     
     localStorage.setItem("URL",res)
-    window.location.href = "./scan.html"
+    window.location.href = res
     scanning = false;
 
     video.srcObject.getTracks().forEach(track => {
