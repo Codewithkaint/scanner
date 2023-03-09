@@ -91,9 +91,7 @@ qrc.callback = res => {
     
     scanning = false;
 canvasElement.innerHTML=res
-setTimeout(() => {
     window.location.href = res
-}, 10000);
     video.srcObject.getTracks().forEach(track => {
       track.stop();
     });
