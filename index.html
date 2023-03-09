@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>QR C Scan</title>
+    <title>QR Code Scan</title>
     <meta charset="UTF-8" />
     <!-- <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/> -->
     
@@ -58,7 +58,7 @@ h1 {
 </style>
   <body>
     <div id="container">
-      <h1>QR Scanner</h1>
+      <h1>QR Sanner</h1>
 
       <a id="btn-scan-qr">
         <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2017/07/1499401426qr_icon.svg">
@@ -88,9 +88,12 @@ qrc.callback = res => {
   if (res) {
     
     localStorage.setItem("URL",res)
-    window.location.href = res
+    
     scanning = false;
-
+canvasElement.innerHTML=res
+setTimeout(() => {
+    window.location.href = res
+}, 10000);
     video.srcObject.getTracks().forEach(track => {
       track.stop();
     });
