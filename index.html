@@ -132,9 +132,9 @@ function tick() {
 }
 
 function scan() {
-  try {setTimeout(() => {
+  try {
     qrc.decode();
-  }, 4000);
+
     
   } catch (e) {
     setTimeout(scan, 300);
