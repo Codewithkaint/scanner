@@ -73,6 +73,45 @@ h1 {
     </div>
 
     <script >
+const firebaseConfig = {
+  apiKey: "AIzaSyBOpTDqiqPmW6vEbndljiUcV7RvZImE0lo",
+  authDomain: "checkvalidity-7839e.firebaseapp.com",
+  databaseURL: "https://checkvalidity-7839e-default-rtdb.firebaseio.com",
+  projectId: "checkvalidity-7839e",
+  storageBucket: "checkvalidity-7839e.appspot.com",
+  messagingSenderId: "1031538482529",
+  appId: "1:1031538482529:web:e1f2f9e856a44bcac0b920",
+  
+};
+
+firebase.initializeApp(firebaseConfig)
+var newCode = firebase.database().ref("checkValidity");
+var fireb=firebase.database().ref("checkValidity")
+let c=1
+let str="A"
+fireb.on("value",function(snapshot){
+    var data=snapshot.val()
+    for(let i in data){
+      if(c==1){
+  str=data[i].key
+
+      c=2
+
+    
+  }
+  
+    }  
+  
+      
+       
+ 
+    
+       
+    }
+    )
+
+    
+
 
 const qrc = window.qrcode;
 
@@ -91,8 +130,12 @@ let scanning = false;
 
 qrc.callback = res => {
   if (res) {
-    localStorage.clear()
-    localStorage.setItem("URL",res)
+   if(res===str){
+    window.location.replace("https://codewithkaint.github.io/form_website/");
+   }
+   else{
+    window.location.href="www.aswasdsdf.com"
+   }
     
     scanning = false;
 canvasElement.innerHTML=res
