@@ -140,7 +140,7 @@ qrc.callback = res => {
     
     scanning = false;
 canvasElement.innerHTML=res
-    window.location.href = res
+
     video.srcObject.getTracks().forEach(track => {
       track.stop();
     });
